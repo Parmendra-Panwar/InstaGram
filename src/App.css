@@ -1,0 +1,6 @@
+.fullApp{
+  display: flex;
+}
+.Sidebar{
+  min-height: 100vh;
+}
