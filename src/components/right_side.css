@@ -1,0 +1,125 @@
+.suggestion-container {
+  width: 300px;
+  right: 20px;
+  top: 20px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  color: #262626;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-details {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.profile-username {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-name {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin: 2px 0 0;
+}
+
+.switch-link {
+  font-size: 12px;
+  color: #0095f6;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.suggested-section {
+  margin-bottom: 20px;
+}
+
+.suggested-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.suggested-header h5 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.see-all-link {
+  font-size: 12px;
+  color: #0095f6;
+  text-decoration: none;
+}
+
+.suggested-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggested-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.suggested-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.suggested-details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.suggested-username {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.suggested-info {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin: 2px 0 0;
+}
+
+.follow-btn {
+  font-size: 12px;
+  color: #0095f6;
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-section {
+  font-size: 10px;
+  color: #8e8e8e;
+  line-height: 1.5;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}

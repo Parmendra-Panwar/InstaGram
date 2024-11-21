@@ -12,7 +12,7 @@ import { RiImageAddFill } from "react-icons/ri";
 const Sidebar = () => {
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary Sidebar"
+      className="d-flex flex-column flex-shrink-0 p-3  Sidebar"
       style={{ width: "280px" }}
     >
       <a
@@ -123,7 +123,7 @@ const Sidebar = () => {
               className="rounded-circle me-2"
             />
             <b className="ms-3" style={{ color: "black" }}>
-              Profile
+              paras.panwar.davm
             </b>
           </a>
         </li>

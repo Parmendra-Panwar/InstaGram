@@ -1,6 +1,18 @@
 .fullApp{
   display: flex;
 }
-.Sidebar{
+.Sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; 
   min-height: 100vh;
+  border-right: 1px solid #cbcbcb; 
+  overflow-y: auto; 
+  z-index: 1030; 
+}
+
+.genral {
+  margin-left: 250px; 
+  padding: 20px; 
 }

@@ -1,0 +1,71 @@
+
+
+.scroll-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.profile {
+  text-align: center;
+  min-width: 80px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #f2003c;
+  background: linear-gradient(to right, #f58529, #dd2a7b, #515bd4);
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.profile-name {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  transform: translateY(-50%);
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+/* .scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+} */
+
+.scroll-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for cleaner look */
+}
