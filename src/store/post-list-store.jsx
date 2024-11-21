@@ -26,6 +26,12 @@ export const PostListContext = createContext({
 });
 
 const postListReducer = (currPostList, action) => {
+  if (action.type === "DELETE_POST") {
+    return currPostList.filter((post) => post.id !== action.payload.postId);
+  }
+  if (action.type === "ADD_POST") {
+    return (currPostList = [action.payload, ...currPostList]);
+  }
   return currPostList;
 };
 
@@ -35,9 +41,28 @@ const PostListProvider = ({ children }) => {
     Default_Post_list
   );
 
-  const addPost = (post) => {};
+  const addPost = (userId, postTitle, postBody, tags) => {
+    dispatchPostList({
+      type: "ADD_POST",
+      payload: {
+        id: Math.random().toString(36).substr(2, 9),
+        title: postTitle,
+        body: postBody,
+        reactions: Math.random(),
+        userId: userId,
+        tags: tags,
+      },
+    });
+  };
 
-  const deletePost = (postId) => {};
+  const deletePost = (postId) => {
+    dispatchPostList({
+      type: "DELETE_POST",
+      payload: {
+        postId,
+      },
+    });
+  };
 
   return (
     <PostListContext.Provider

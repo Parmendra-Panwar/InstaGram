@@ -13,7 +13,7 @@ const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3  Sidebar"
-      style={{ width: "280px" }}
+      style={{ width: "255px" }}
     >
       <a
         href="/"

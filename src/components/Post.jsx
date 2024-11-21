@@ -1,8 +1,13 @@
 import { FaRegHeart, FaRegCommentAlt, FaRegBookmark } from "react-icons/fa";
 import { GoPaperAirplane } from "react-icons/go";
 import himachalImage from "./himachal.jpg";
+import { IoReorderThree } from "react-icons/io5";
+import { useContext } from "react";
+import { PostListContext } from "../store/post-list-store";
 
-const Post = () => {
+const Post = ({ post }) => {
+  const tags = post.tags;
+  const { deletePost } = useContext(PostListContext);
   return (
     <>
       <div className="card mb-1 " style={{ width: "35rem", border: "none" }}>
@@ -17,11 +22,16 @@ const Post = () => {
             style={{ width: "40px", height: "40px" }}
           />
 
-          <h5 className="mx-3 my-1">User_01</h5>
+          <h5 className="mx-3 my-1">{post.userId}</h5>
 
           <button className="follow-btn" style={{ fontSize: "1rem" }}>
             Follow
           </button>
+          <IoReorderThree
+            size={45}
+            color="Black"
+            style={{ marginLeft: "19rem" }}
+          />
         </div>
 
         <div className="card-body">
@@ -33,11 +43,11 @@ const Post = () => {
           />
           <p className="card-text">
             <b>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content
+              {post.title}_{post.body}
             </b>
             ...more
           </p>
+          <p>{tags.map((tag) => ` #${tag} `)}</p>
           <p className="my-1">View All Comments</p>
           <p>Add A Comment</p>
           <div style={{ width: "32.8rem" }}>
@@ -50,9 +60,18 @@ const Post = () => {
               style={{ marginLeft: "25rem" }}
             />
           </div>
-          <p className="mt-2">3000 like</p>
+          <p className="mt-2">{post.reactions} like</p>
         </div>
       </div>
+      <button
+        className="btn btn-danger"
+        onClick={() => {
+          deletePost(post.id);
+        }}
+      >
+        {" "}
+        Delete{" "}
+      </button>
       <hr style={{ width: "35rem" }} />
     </>
   );

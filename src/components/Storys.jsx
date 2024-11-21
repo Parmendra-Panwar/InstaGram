@@ -1,7 +1,7 @@
 import React from "react";
 import "./Story.css";
 
-const Story = () => {
+const Storys = () => {
   const scrollLeft = () => {
     const container = document.querySelector(".scroll-content");
     container.scrollBy({ left: -100, behavior: "smooth" });
@@ -92,4 +92,4 @@ const Story = () => {
   );
 };
 
-export default Story;
+export default Storys;

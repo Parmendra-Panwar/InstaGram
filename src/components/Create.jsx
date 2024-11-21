@@ -1,4 +1,28 @@
+import { useContext, useRef } from "react";
+import { PostListContext } from "../store/post-list-store";
+
 const Create = () => {
+  const { addPost } = useContext(PostListContext);
+
+  const userIdElement = useRef();
+  const postTitleElement = useRef();
+  const postBodyElement = useRef();
+  const tagsElement = useRef();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userId = userIdElement.current.value;
+    const postTitle = postTitleElement.current.value;
+    const postBody = postBodyElement.current.value;
+    const tags = tagsElement.current.value.split(" ");
+
+    userIdElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    tagsElement.current.value = "";
+
+    addPost(userId, postTitle, postBody, tags);
+  };
   return (
     <form
       className="row g-3 mx-3"
@@ -6,8 +30,36 @@ const Create = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: "35rem",
       }}
+      onSubmit={handleSubmit}
     >
+      <div className="col-md-6">
+        <label htmlFor="validationDefault03" className="form-label">
+          UserId
+        </label>
+        <input
+          type="text"
+          name="location"
+          ref={userIdElement}
+          className="form-control"
+          id="validationDefault03 userId"
+          required
+        />
+      </div>
+      <div className="col-md-6">
+        <label htmlFor="validationDefault03" className="form-label">
+          Title
+        </label>
+        <input
+          type="text"
+          name="location"
+          ref={postTitleElement}
+          className="form-control"
+          id="validationDefault03 title"
+          required
+        />
+      </div>
       <div className="col-md-6">
         <label htmlFor="validationDefault01" className="form-label">
           Decription
@@ -16,36 +68,26 @@ const Create = () => {
           className="form-control"
           name="Descraption"
           cols="30"
-          rows="10"
-          id="validationDefault01"
+          ref={postBodyElement}
+          rows="5"
+          id="validationDefault01 body"
           required
         ></textarea>
       </div>
-      <div className="col-md-6">
-        <label htmlFor="validationDefault03" className="form-label">
-          Location
-        </label>
-        <input
-          type="text"
-          name="location"
-          className="form-control"
-          id="validationDefault03"
-          required
-        />
-      </div>
-      <div className="col-md-6">
-        <label htmlFor="validationDefault03" className="form-label">
-          Add Tags
-        </label>
-        <input
-          type="text"
-          name="location"
-          className="form-control"
-          id="validationDefault03"
-          required
-        />
-      </div>
 
+      <div className="col-md-6">
+        <label htmlFor="validationDefault03" className="form-label">
+          Add Tags with space
+        </label>
+        <input
+          type="text"
+          name="location"
+          ref={tagsElement}
+          className="form-control"
+          id="validationDefault03"
+          required
+        />
+      </div>
       <button
         className="btn btn-primary"
         type="submit"
