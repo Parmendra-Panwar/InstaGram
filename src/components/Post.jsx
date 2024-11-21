@@ -14,10 +14,10 @@ const Post = () => {
             src="https://via.placeholder.com/80"
             alt="Profile 3"
             className="profile-img"
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "40px", height: "40px" }}
           />
 
-          <h5 className="mx-3 my-2">User_01</h5>
+          <h5 className="mx-3 my-1">User_01</h5>
 
           <button className="follow-btn" style={{ fontSize: "1rem" }}>
             Follow

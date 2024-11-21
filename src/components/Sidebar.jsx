@@ -9,7 +9,7 @@ import { MdOutlineExplore } from "react-icons/md";
 import { TfiInstagram } from "react-icons/tfi";
 import { RiImageAddFill } from "react-icons/ri";
 
-const Sidebar = () => {
+const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3  Sidebar"
@@ -25,19 +25,27 @@ const Sidebar = () => {
       <br />
       <br />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item mb-3">
+        <li
+          className="nav-item mb-3 "
+          onClick={() => {
+            setSelectedTeb("Home");
+          }}
+        >
           <a
             href="#"
             className="nav-link d-flex align-items-center"
             aria-current="page"
           >
             <GoHomeFill size={30} color="Black" />
-            <b className="ms-3" style={{ color: "black" }}>
+            <b
+              className={`ms-3 ${selectedTeb === "Home" && "border-bottom"}`}
+              style={{ color: "black" }}
+            >
               Home
             </b>
           </a>
         </li>
-        <li className="nav-item mb-3">
+        <li className="nav-item mb-3 ">
           <a
             href="#"
             className="nav-link d-flex align-items-center"
@@ -97,14 +105,22 @@ const Sidebar = () => {
             </b>
           </a>
         </li>
-        <li className="nav-item mb-3">
+        <li
+          className="nav-item mb-3"
+          onClick={() => {
+            setSelectedTeb("Create");
+          }}
+        >
           <a
             href="#"
             className="nav-link d-flex align-items-center"
             aria-current="page"
           >
             <RiImageAddFill size={30} color="Black" />
-            <b className="ms-3" style={{ color: "black" }}>
+            <b
+              className={`ms-3 ${selectedTeb === "Create" && "border-bottom"}`}
+              style={{ color: "black" }}
+            >
               Create
             </b>
           </a>
