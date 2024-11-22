@@ -1,5 +1,5 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
 import Sidebar from "./components/SideBar";
 import Postlist from "./components/Post_list";
 import Create from "./components/Create";

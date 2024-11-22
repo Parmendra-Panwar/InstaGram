@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
   color: #262626;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 150px;
 }
 
 .profile-section {
@@ -122,4 +122,11 @@
 
 .footer-section p {
   margin: 5px 0;
+}
+
+/* Tablet screen (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .suggestion-container {
+    display: none;
+  }
 }

@@ -8,13 +8,11 @@ import { GoHomeFill } from "react-icons/go";
 import { MdOutlineExplore } from "react-icons/md";
 import { TfiInstagram } from "react-icons/tfi";
 import { RiImageAddFill } from "react-icons/ri";
+import "./sidebar.css";
 
 const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
   return (
-    <div
-      className="d-flex flex-column flex-shrink-0 p-3  Sidebar"
-      style={{ width: "255px" }}
-    >
+    <div className="d-flex flex-column flex-shrink-0 p-3  Sidebar">
       <a
         href="/"
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
@@ -139,7 +137,7 @@ const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
               className="rounded-circle me-2"
             />
             <b className="ms-3" style={{ color: "black" }}>
-              paras.panwar.davm
+              Profile
             </b>
           </a>
         </li>
