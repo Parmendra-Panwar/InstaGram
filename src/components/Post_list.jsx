@@ -1,22 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Post from "./post";
 import { PostListContext } from "../store/post-list-store";
 import Storys from "./Storys";
 
 import Right_side from "./right_side";
 import Wellcome from "./wellcome";
+import Loading from "./Loading";
 
 const Postlist = () => {
   const { postlist, addInitial } = useContext(PostListContext);
 
-  const handleGetPostsClick = () => {
+  const [facthing, setfacthing] = useState(false);
+
+  useEffect(() => {
     // fetch posts from API
+    setfacthing(true);
     fetch("http://localhost:3000/api/posts")
       .then((res) => res.json())
       .then((data) => {
         addInitial(data);
+        setfacthing(false);
       });
-  };
+  }, []);
 
   return (
     <>
@@ -28,15 +33,13 @@ const Postlist = () => {
             alignItems: "center",
           }}
         >
-          {postlist.length === 0 && (
-            <Wellcome onGetPostClick={handleGetPostsClick} />
-          )}
-          {postlist.length !== 0 && <Storys />}
-          {postlist.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
+          {facthing && <Loading />}
+          {!facthing && postlist.length === 0 && <Wellcome />}
+          {!facthing && postlist.length !== 0 && <Storys />}
+          {!facthing &&
+            postlist.map((post) => <Post key={post.id} post={post} />)}
         </div>
-        <Right_side></Right_side>
+        {!facthing && <Right_side></Right_side>}
       </div>
     </>
   );

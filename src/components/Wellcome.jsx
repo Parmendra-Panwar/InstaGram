@@ -1,4 +1,4 @@
-const Wellcome = ({ onGetPostClick }) => {
+const Wellcome = () => {
   return (
     <div
       style={{
@@ -11,9 +11,6 @@ const Wellcome = ({ onGetPostClick }) => {
       }}
     >
       <h2>WELLCOME GUYS</h2>
-      <button className="btn btn-primary" onClick={onGetPostClick}>
-        Click me
-      </button>
     </div>
   );
 };
