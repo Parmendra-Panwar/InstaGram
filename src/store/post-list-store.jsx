@@ -9,7 +9,6 @@ import {
 export const PostListContext = createContext({
   postlist: [],
   addPost: () => {},
-  facthing: false,
   deletePost: () => {},
 });
 
@@ -28,9 +27,6 @@ const postListReducer = (currPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postlist, dispatchPostList] = useReducer(postListReducer, []);
-
-  //adding intial data
-  const [facthing, setfacthing] = useState(false);
 
   //methods for reduser
   const addPost = (post) => {
@@ -64,30 +60,11 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList]
   );
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-
-    setfacthing(true);
-    fetch("http://localhost:3000/api/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addInitial(data);
-        setfacthing(false);
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
-  //returning component
   return (
     <PostListContext.Provider
       value={{
         postlist,
         addPost,
-        facthing,
         deletePost,
       }}
     >

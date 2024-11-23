@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react";
 import { PostListContext } from "../store/post-list-store";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const { addPost } = useContext(PostListContext);
@@ -8,6 +9,8 @@ const Create = () => {
   const postTitleElement = useRef();
   const postBodyElement = useRef();
   const tagsElement = useRef();
+
+  const Navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,6 +47,7 @@ const Create = () => {
       .then((data) => {
         console.log("Post added:", data);
         addPost(data.postData);
+        Navigate("/");
       })
       .catch((error) => {
         console.error("Error:", error);

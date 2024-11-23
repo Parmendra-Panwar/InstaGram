@@ -1,14 +1,11 @@
-import { useContext, useEffect, useState } from "react";
 import Post from "./post";
-import { PostListContext } from "../store/post-list-store";
 import Storys from "./Storys";
-
 import Right_side from "./Right_side";
 import Wellcome from "./Wellcome";
-import Loading from "./Loading";
+import { useLoaderData } from "react-router-dom";
 
 const Postlist = () => {
-  const { postlist, facthing } = useContext(PostListContext);
+  const postlist = useLoaderData();
 
   return (
     <>
@@ -20,16 +17,33 @@ const Postlist = () => {
             alignItems: "center",
           }}
         >
-          {facthing && <Loading />}
-          {!facthing && postlist.length === 0 && <Wellcome />}
-          {!facthing && postlist.length !== 0 && <Storys />}
-          {!facthing &&
-            postlist.map((post) => <Post key={post.id} post={post} />)}
+          {postlist.length === 0 && <Wellcome />}
+          {postlist.length !== 0 && <Storys />}
+          {postlist.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
         </div>
-        {!facthing && <Right_side></Right_side>}
+        <Right_side></Right_side>
       </div>
     </>
   );
 };
 
+// export const postLoader = () => {
+//   fetch("http://localhost:3000/api/posts")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log("Data form Server", data);
+//       return data;
+//     });
+// };
+
+export const postLoader = async () => {
+  const response = await fetch("http://localhost:3000/api/posts");
+  if (!response.ok) {
+    throw new Error("Failed to fetch posts");
+  }
+  const data = await response.json();
+  return data; // Return the data to be used by the loader
+};
 export default Postlist;

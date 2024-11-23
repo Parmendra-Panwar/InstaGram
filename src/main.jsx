@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./rutes/App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Create from "./components/Create.jsx";
-import Postlist from "./components/Post_list.jsx";
+import Postlist, { postLoader } from "./components/Post_list.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +13,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Postlist />,
+        loader: postLoader,
       },
       {
         path: "create-post",
