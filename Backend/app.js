@@ -74,7 +74,6 @@ app.get("/api/posts", (req, res) => {
   res.json(Data.slice(0, limit));
 });
 
-// POST route to add data
 app.post("/api/posts", (req, res) => {
   const postData = req.body;
 
@@ -86,10 +85,26 @@ app.post("/api/posts", (req, res) => {
   res.status(201).json({ message: "Post added successfully!", postData });
 });
 
+app.post("/api/posts/delete", (req, res) => {
+  const { id } = req.body;
+
+  if (!id) {
+    return res.status(400).json({ error: "Post ID is required!" });
+  }
+
+  const index = Data.findIndex((post) => post.id === id);
+
+  if (index !== -1) {
+    Data.splice(index, 1);
+    res.json({ message: "Post deleted successfully!" });
+  } else {
+    res.status(404).json({ error: "Post not found!" });
+  }
+});
 
 app.use((err, req, res, next) => {
-  console.error(err.stack); // Log error stack for debugging
-  res.status(500).json({ error: "Internal Server Error" }); // Respond with error message
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 app.listen(port, () => {

@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Form, redirect } from "react-router-dom";
-import { PostListContext } from "../store/post-list-store";
+
 const Create = () => {
   return (
     <Form
@@ -53,6 +52,7 @@ const Create = () => {
     </Form>
   );
 };
+
 export async function createPostAction(data) {
   let pId = Math.random().toString(36).substr(2, 9);
   const formData = await data.request.formData();
