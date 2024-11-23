@@ -6,10 +6,9 @@ import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 
 const Postlist = () => {
-  const initialPostlist = useLoaderData(); // Initial data from the loader
-  const [postlist, setPostlist] = useState(initialPostlist); // Manage state locally
+  const initialPostlist = useLoaderData();
+  const [postlist, setPostlist] = useState(initialPostlist);
 
-  // Handle deletion of a post
   const handleDelete = async (postId) => {
     try {
       const response = await fetch("http://localhost:3000/api/posts/delete", {
