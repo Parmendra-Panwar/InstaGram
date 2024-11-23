@@ -33,7 +33,7 @@ const Storys = () => {
               alt="Profile 2"
               className="profile-img"
             />
-            <p className="profile-name">__shraddh...</p>
+            <p className="profile-name">__shraddh..</p>
           </div>
           <div className="profile">
             <img
@@ -41,7 +41,7 @@ const Storys = () => {
               alt="Profile 3"
               className="profile-img"
             />
-            <p className="profile-name">rider_govi...</p>
+            <p className="profile-name">rider_govi..</p>
           </div>
           <div className="profile">
             <img
@@ -49,7 +49,7 @@ const Storys = () => {
               alt="Profile 4"
               className="profile-img"
             />
-            <p className="profile-name">pradeep.ra...</p>
+            <p className="profile-name">pradeep.ra..</p>
           </div>
           <div className="profile">
             <img
@@ -57,7 +57,7 @@ const Storys = () => {
               alt="Profile 5"
               className="profile-img"
             />
-            <p className="profile-name">devendra_...</p>
+            <p className="profile-name">devendra_..</p>
           </div>
           <div className="profile">
             <img
@@ -73,7 +73,7 @@ const Storys = () => {
               alt="Profile 7"
               className="profile-img"
             />
-            <p className="profile-name">panwarrah...</p>
+            <p className="profile-name">panwarrah..</p>
           </div>
           <div className="profile">
             <img

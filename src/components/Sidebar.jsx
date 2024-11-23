@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaSearch,
@@ -10,9 +11,9 @@ import { TfiInstagram } from "react-icons/tfi";
 import { RiImageAddFill } from "react-icons/ri";
 import "./sidebar.css";
 
-const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
+const Sidebar = () => {
   return (
-    <div className="d-flex flex-column flex-shrink-0 p-3  Sidebar">
+    <div className="d-flex flex-column flex-shrink-0 p-3 Sidebar">
       <a
         href="/"
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
@@ -23,27 +24,17 @@ const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
       <br />
       <br />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li
-          className="nav-item mb-3 "
-          onClick={() => {
-            setSelectedTeb("Home");
-          }}
-        >
-          <a
-            href="#"
+        <li className="nav-item mb-3">
+          <Link
+            to="/"
             className="nav-link d-flex align-items-center"
             aria-current="page"
           >
             <GoHomeFill size={30} color="Black" />
-            <b
-              className={`ms-3 ${selectedTeb === "Home" && "border-bottom"}`}
-              style={{ color: "black" }}
-            >
-              Home
-            </b>
-          </a>
+            <b style={{ color: "black" }}>Home</b>
+          </Link>
         </li>
-        <li className="nav-item mb-3 ">
+        <li className="nav-item mb-3">
           <a
             href="#"
             className="nav-link d-flex align-items-center"
@@ -103,26 +94,17 @@ const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
             </b>
           </a>
         </li>
-        <li
-          className="nav-item mb-3"
-          onClick={() => {
-            setSelectedTeb("Create");
-          }}
-        >
-          <a
-            href="#"
+        <li className="nav-item mb-3">
+          <Link
+            to="/create-post"
             className="nav-link d-flex align-items-center"
             aria-current="page"
           >
             <RiImageAddFill size={30} color="Black" />
-            <b
-              className={`ms-3 ${selectedTeb === "Create" && "border-bottom"}`}
-              style={{ color: "black" }}
-            >
-              Create
-            </b>
-          </a>
+            <b style={{ color: "black" }}>Create</b>
+          </Link>
         </li>
+
         <li className="nav-item mb-3">
           <a
             href="#"
@@ -155,7 +137,7 @@ const Sidebar = ({ selectedTeb, setSelectedTeb }) => {
         <ul className="dropdown-menu text-small shadow">
           <li>
             <a className="dropdown-item" href="#">
-              New project...
+              New project
             </a>
           </li>
           <li>

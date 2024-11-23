@@ -44,7 +44,7 @@ const Post = ({ post }) => {
           <div className="card-text">
             <p style={{ fontWeight: "600" }}>
               {post.title}_{post.body}
-              <span style={{ fontWeight: "490" }}> . . . more</span>
+              <span style={{ fontWeight: "490" }}>more</span>
             </p>
           </div>
 
