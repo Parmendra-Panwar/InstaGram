@@ -3,25 +3,12 @@ import Post from "./post";
 import { PostListContext } from "../store/post-list-store";
 import Storys from "./Storys";
 
-import Right_side from "./right_side";
-import Wellcome from "./wellcome";
+import Right_side from "./Right_side";
+import Wellcome from "./Wellcome";
 import Loading from "./Loading";
 
 const Postlist = () => {
-  const { postlist, addInitial } = useContext(PostListContext);
-
-  const [facthing, setfacthing] = useState(false);
-
-  useEffect(() => {
-    // fetch posts from API
-    setfacthing(true);
-    fetch("http://localhost:3000/api/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        addInitial(data);
-        setfacthing(false);
-      });
-  }, []);
+  const { postlist, facthing } = useContext(PostListContext);
 
   return (
     <>

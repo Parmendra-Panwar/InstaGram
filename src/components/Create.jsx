@@ -21,8 +21,35 @@ const Create = () => {
     postBodyElement.current.value = "";
     tagsElement.current.value = "";
 
-    addPost(userId, postTitle, postBody, tags);
+    let pId = Math.random().toString(36).substr(2, 9);
+
+    fetch("http://localhost:3000/api/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: pId,
+        reactions: Math.floor(Math.random() * 100),
+        userId: userId, // Replace with actual userId variable
+        title: postTitle, // Replace with actual postTitle variable
+        body: postBody, // Replace with actual postBody variable
+        tags: tags, // Replace with actual tags array
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to add post");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Post added:", data);
+        addPost(data.postData);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
+
   return (
     <form
       className="row g-3 mx-3"

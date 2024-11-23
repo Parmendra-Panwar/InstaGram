@@ -1,0 +1,6 @@
+isme kya apanne 
+use effect ko sahi jagah fit kiya like post_list se hata ke post_list_store pe set kiya
+
+factching ko pass kiya data means form submit kiya
+
+add initial ko ko context se hataya kyuki ab bo same file me hai

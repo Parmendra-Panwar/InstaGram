@@ -35,18 +35,19 @@ const Post = ({ post }) => {
         </div>
 
         <div className="card-body">
-          <img
+          {/* <img
             src={himachalImage}
             className="card-img-top "
             style={{ width: "100%" }}
             alt="Himachal"
-          />
-          <p className="card-text">
-            <b>
+          /> */}
+          <div className="card-text">
+            <p style={{ fontWeight: "600" }}>
               {post.title}_{post.body}
-            </b>
-            ...more
-          </p>
+              <span style={{ fontWeight: "490" }}> . . . more</span>
+            </p>
+          </div>
+
           <p>{tags.map((tag) => ` #${tag} `)}</p>
           <p className="my-1">View All Comments</p>
           <p>Add A Comment</p>
@@ -69,8 +70,7 @@ const Post = ({ post }) => {
           deletePost(post.id);
         }}
       >
-        {" "}
-        Delete{" "}
+        Delete
       </button>
       <hr style={{ width: "35rem" }} />
     </>
